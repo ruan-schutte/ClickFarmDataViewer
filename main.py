@@ -5,7 +5,7 @@ from dash import dcc
 import plotly.graph_objects as go
 
 app = dash.Dash()  # initialising dash app
-
+server=app.server
 
 
 df = pd.read_csv('AID713.csv')
