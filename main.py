@@ -6,7 +6,7 @@ import plotly.graph_objects as go
 import plotly.express as px
 
 app = dash.Dash()  # initialising dash app
-
+server=app.server
 
 
 df = pd.read_csv('AID713.csv')
