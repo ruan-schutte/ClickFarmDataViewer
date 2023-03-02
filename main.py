@@ -5,11 +5,11 @@ from dash import dcc
 import plotly.graph_objects as go
 
 app = dash.Dash()  # initialising dash app
-server=app.server
+
 
 
 df = pd.read_csv('AID713.csv')
-df.columns =['Date', 'Temp', 'Humidity', 'VPD','PH' , ]
+df.columns =['Date', 'Temp', 'Humidity', 'VPD' ]
 print(df.head())
 
     #px.data.stocks()  # reading stock price dataset
@@ -52,7 +52,7 @@ def vpd():
                       )
     return fig
 
-def ph():
+'''def ph():
 
     # Function for creating line chart showing Google stock prices over time
     fig = go.Figure([go.Bar(x=df['Date'], y=df['PH'],name='Google')
@@ -61,7 +61,7 @@ def ph():
                       xaxis_title='Dates',
                       yaxis_title='PH'
                       )
-    return fig
+    return fig'''
 
 app.layout = html.Div(id='parent', children=[
     html.Div([
@@ -103,21 +103,9 @@ app.layout = html.Div(id='parent', children=[
             figure=vpd()
         ),
     ]),
-    # New Div for all elements in the new 'row' of the page
-    html.Div([
-        html.H1(children='ClickFarm1 Environment Data'),
-
-        html.Div(children='''
-                PH over time.
-            '''),
-
-        dcc.Graph(
-            id='graph4',
-            figure=ph()
-        ),
+    # New Div for all elements in the new 'row' of the page])
 ])
-
-    ])
 
 if __name__ == '__main__':
     app.run_server()
+
