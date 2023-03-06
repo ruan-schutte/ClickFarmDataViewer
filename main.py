@@ -5,13 +5,11 @@ from dash import dcc
 import plotly.graph_objects as go
 
 app = dash.Dash()  # initialising dash app
-server=app.server
-
-
+#server=app.server
 
 
 df = pd.read_csv('AID713.csv')
-df.columns =['Date', 'Temp', 'Humidity', 'VPD' ]
+df.columns =['Date', 'Temp', 'Humidity', 'VPD' ,'PH' ]
 print(df.head())
 
     #px.data.stocks()  # reading stock price dataset
@@ -54,7 +52,7 @@ def vpd():
                       )
     return fig
 
-'''def ph():
+def ph():
 
     # Function for creating line chart showing Google stock prices over time
     fig = go.Figure([go.Bar(x=df['Date'], y=df['PH'],name='Google')
@@ -63,7 +61,7 @@ def vpd():
                       xaxis_title='Dates',
                       yaxis_title='PH'
                       )
-    return fig'''
+    return fig
 
 app.layout = html.Div(id='parent', children=[
     html.Div([
